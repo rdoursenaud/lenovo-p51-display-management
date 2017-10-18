@@ -25,14 +25,13 @@ then
     XORGGPUCONF="10-nvidia.conf.template"
 elif [ "${1}" == 'nvidia' ]
 then
-    "${SCRIPTPATH}/enable-nvidia.sh"
+    sudo "${SCRIPTPATH}/enable-nvidia.sh"
     XINITRC=".xinitrc.nvidia"
     XORGGPUCONF="10-nvidia.conf.template"
 else
-then
-    "${SCRIPTPATH}/disable-nvidia.sh"
+    sudo "${SCRIPTPATH}/disable-nvidia.sh"
 fi
 
-sudo rm -f "~/.xinitrc" "/etc/X11/xorg.conf.d/10-gpu.conf"
-sudo ln -s "~/${XINITRC}" "~/.xinitrc"
+sudo rm -f "/home/raph/.xinitrc" "/etc/X11/xorg.conf.d/10-gpu.conf"
+sudo ln -s "/home/raph/${XINITRC}" "/home/raph/.xinitrc"
 sudo ln -s "/etc/X11/xorg.conf.d/${XORGGPUCONF}" "/etc/X11/xorg.conf.d/10-gpu.conf"

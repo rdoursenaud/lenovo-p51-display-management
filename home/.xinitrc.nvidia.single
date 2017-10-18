@@ -46,5 +46,9 @@ xinput --float Wacom\ Co.,Ltd.\ Pen\ and\ multitouch\ sensor\ Finger\ touch
 xinput --float Wacom\ Co.,Ltd.\ Pen\ and\ multitouch\ sensor\ Pen\ stylus
 xinput --float Wacom\ Co.,Ltd.\ Pen\ and\ multitouch\ sensor\ Pen\ eraser
 
+# Export gnome-keyring-daemon
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
 # Launch i3
 exec i3

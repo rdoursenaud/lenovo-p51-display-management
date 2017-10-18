@@ -35,6 +35,7 @@ setxkbmap -model pc104 -layout fr -variant bepo
 
 # Force layout and DPI
 xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --setprovideroffloadsink NVIDIA-0
 /home/raph/.screenlayout/4\ screens.sh
 
 # Touchscreen
@@ -46,6 +47,10 @@ xinput --float Wacom\ Co.,Ltd.\ Pen\ and\ multitouch\ sensor\ Pen\ eraser
 xinput map-to-output Wacom\ Co.,Ltd.\ Pen\ and\ multitouch\ sensor\ Finger\ touch eDP-1-1
 xinput map-to-output Wacom\ Co.,Ltd.\ Pen\ and\ multitouch\ sensor\ Pen\ stylus eDP-1-1
 xinput map-to-output Wacom\ Co.,Ltd.\ Pen\ and\ multitouch\ sensor\ Pen\ eraser eDP-1-1
+
+# Export gnome-keyring-daemon
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
 
 # Launch i3
 exec i3
